@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+		<div th:fragment="copy">
+			
+				<!-- Titulo -->
+				<div class="form-group">
+					<label>Título: </label>
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">
+							<span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> 
+						</span>
+						<input type="text" class="form-control" placeholder="Título del Producto"
+							   name="titulo" aria-describedby="basic-addon1" 
+							   th:value="${producto != null ? producto.titulo : ''}" />
+					</div>
+				</div>
+				
+				<!-- Precio -->
+				<div class="form-group">
+					<label>Precio: </label>
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">
+							<span class="glyphicon glyphicon-euro" aria-hidden="true"></span>
+						</span>
+						<input type="number" max="999999" step="0.01" class="form-control"
+							   placeholder="Precio" name="precio" aria-describedby="basic-addon1"
+							   th:value="${producto != null ? producto.precio : ''}" />
+					</div>
+				</div>
+				
+				<!-- Categor�a -->
+				<div class="form-group">
+					<label>Categoría: </label>
+					<div class="input-group dropdown">
+						<span class="input-group-addon" id="basic-addon1"><span
+							class="glyphicon glyphicon-tasks" aria-hidden="true"></span></span>
+						<select name="categoria" class="form-control">
+							<option value="Vehiculos">Vehículos</option>
+							<option value="Moda">Moda</option>
+							<option value="Electrodomesticos">Electrodomésticos</option>
+							<option value="Libros">Libros</option>
+						</select>
+					</div>
+				</div>
+				
+				<!-- Estado -->
+				<div class="form-group">
+					<label>Estado: </label>
+					<div class="input-group dropdown">
+						<span class="input-group-addon" id="basic-addon1"><span
+							class="glyphicon glyphicon-tags" aria-hidden="true"></span></span>
+						<select name="estado" class="form-control">
+							<option value="Disponible">Disponible</option>
+							<option value="Reservado">Reservado</option>
+							<option value="Vendido">Vendido</option>
+						</select>
+					</div>
+				</div>
+				
+				<!-- Descripci�n -->
+				<div class="form-group">
+					<label>Descripción</label>
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">
+							<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+						</span>
+						<textarea maxlength="140" class="form-control" name="descripcion" 
+								  th:text="${producto != null ? producto.descripcion : ''}"></textarea>
+					</div>
+				</div>
+				
+				<!-- Foto -->
+				<div class="form-group">
+					<label>Foto:</label>
+					<div class="input-group">
+						<div class="media">
+						  <div class="media-left">
+						    <a href="#">
+						      <img class="media-object" th:src="@{${producto != null? 'data:image/jpg;base64,' + producto.imagenCodificada : '/images/no-image-uplaod.png'}}" width="70" height="70" />
+						    </a>
+						  </div>
+						  <div class="media-body">
+							 <input type="file" id="foto" name="foto" /> 
+						  </div>
+						</div>
+						
+					</div>
+				</div>
+				
+		</div>
+		
+</body>
+</html>

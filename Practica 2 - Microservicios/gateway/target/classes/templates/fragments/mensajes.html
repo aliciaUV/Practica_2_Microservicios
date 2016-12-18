@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+ <body>
+    <div th:fragment="copy">
+		<div th:if="${Mensaje}">
+			<div th:class="${'alert ' + 'alert-dismissible ' + Mensaje.cssClass}" role="alert">
+				<button type="button" class="close" data-dismiss="alert"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<p th:inline="text"> <strong> [[${Mensaje.tipoMsg}]] :  </strong>  [[${Mensaje.msg}]] </p>
+			</div>
+		</div>
+	 </div>	
+</body>
+</html>
+

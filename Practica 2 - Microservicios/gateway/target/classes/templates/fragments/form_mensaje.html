@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+		<div th:fragment="copy">
+			
+			
+			  <div class="form-group">
+			    <label for="for_1">De:</label>
+			    <span id="for_1" th:text="${usuarioFrom != null? usuarioFrom.email : ''}"></span>
+			    <input type="hidden" name="idUsuarioFrom" 
+			     th:value="${usuarioFrom != null? usuarioFrom.id : ''}"/>
+			  </div>
+			  <div class="form-group">
+			    <label for="for_2">Para:</label>
+			    
+			    <!--/*/  <th:block th:if="${usuarioTo == null}" > /*/-->
+			    <select class="form-control" name="idUsuarioTo">
+			    	<option th:each="u : ${usuarios}"
+			    		    th:text="${u.email}"
+			    		    th:value="${u.id}"
+			    		    th:selected="${u.id == idUsuarioTo}">
+			    	</option>
+			    </select>
+			     <!--/*/  </th:block> /*/-->
+			    
+			    <!--/*/  <th:block th:if="${usuarioTo != null}" > /*/-->
+			    <span th:text="${usuarioTo.email}"></span>
+			    <input type="hidden" name="idUsuarioTo" th:value="${usuarioTo.id}" />
+			    <!--/*/  </th:block> /*/-->
+			  </div>
+			  <div class="form-group">
+			    <label for="for_3">Mensaje:</label>
+			    <textarea maxlength="140" class="form-control" name="texto" id="for_3"  rows="3"></textarea>
+			  </div>
+			  <br />
+			
+		</div>
+		
+</body>
+</html>

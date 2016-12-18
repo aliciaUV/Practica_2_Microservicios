@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<header th:include="fragments/header :: copy"></header>
+	<title>Menú Principal</title>
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="header clearfix">
+		<div th:include="fragments/nav_usuario :: copy"></div> 
+		<h3 class="text-muted" th:inline="text">Hola [[${usuario.nombre}]]</h3>
+		</div>
+
+		<div class="jumbotron">
+			<h1 >Menú principal</h1>
+			<div th:include="fragments/mensajes :: copy"></div>
+
+			<form th:action="@{buscarProducto}" method="post">
+				<div class="input-group">
+					<span class="input-group-addon" id="basic-addon1"><span
+						class="glyphicon glyphicon-search" aria-hidden="true"></span></span> <input
+						type="text" class="form-control" placeholder="Buscar..." name="searchTerm"
+						aria-describedby="basic-addon1" />
+				</div>
+				<br />
+				<div class="row text-right">
+					<button type="submit" class="btn btn-primary btn-lg">Buscar</button>
+				</div>
+				<br />
+			</form>
+			
+			<div th:include="fragments/listar_productos :: copy"></div>
+			
+		</div>
+		<div th:include="fragments/footer :: copy"></div>
+	</div> <!-- /container -->
+
+	<div th:include="fragments/javascript :: copy"></div>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+			$('.collapse').collapse();
+			
+		});
+	</script>
+
+</body>
+</html>

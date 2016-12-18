@@ -1,0 +1,10 @@
+Para entrar a la aplicación hará falta la ruta siguiente:
+localhost:8080/login
+
+Para entrar como usuario hay que loguarse como:
+Usuario: user@user.com
+Contraseña: user
+
+Para entrar como administrador hay que loguarse como:
+Usuario: admin@admin.com
+Contraseña: admin

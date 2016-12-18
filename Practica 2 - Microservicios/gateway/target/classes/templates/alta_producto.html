@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<header th:include="fragments/header :: copy"></header>
+	<title>Alta Producto</title>
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="header clearfix">
+		<div th:include="fragments/nav_usuario :: copy"></div> 
+		<h3 class="text-muted">Alta de Producto</h3>
+		</div>
+
+		<div class="jumbotron">
+			<h1>Alta de Producto</h1>
+			<div th:include="fragments/mensajes :: copy"></div>
+
+			<form th:action="@{producto}" method="post" th:object="${Producto}" enctype="multipart/form-data">
+				<div th:include="fragments/form_producto :: copy"></div>
+				
+				<br />
+				<button type="submit" class="btn btn-primary btn-lg">Alta</button>
+			</form>
+		</div>
+		<div th:include="fragments/footer :: copy"></div>
+	</div> <!-- /container -->
+
+	<div th:include="fragments/javascript :: copy"></div>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+		<div th:fragment="copy">
+			
+			<div  th:each="p : ${productos}" class="media">
+			  
+			  
+			  <div class="media-left">		
+			  <div class="col-md-4">	    
+			    <a>
+			      <img class="media-object" 
+			      	   th:src="@{'data:image/jpg;base64,' + ${p.imagenCodificada}}" 
+			      	   width="150" height="150" />
+			    </a>
+			    </div>
+			  </div>
+			  
+			  <div class="media-body">
+			  <div class="col-md-8">
+			    <h4 class="media-heading" th:text="${p.titulo}"> </h4>
+			    <p th:text="${p.descripcion}"> </p>
+			    <span th:inline="text"> [[${p.precio}]] €</span>
+			    <br/><br/>
+				<p th:text="${p.categoria}"> </p>
+				<p th:text="${p.estado}"> </p>
+			  </div>
+			  </div>
+			  
+			  <hr />
+			</div>		
+				
+		</div>
+		
+</body>
+</html>

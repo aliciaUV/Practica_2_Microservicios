@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<header th:include="fragments/header :: copy"></header>
+	<title>Perfil de Usuario</title>
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="header clearfix">
+		<div th:include="fragments/nav_usuario :: copy"></div> 
+		<h3 class="text-muted">Wallapop</h3>
+		</div>
+
+		<div class="jumbotron">
+			<h1>Perfil de Usuario</h1>
+			<div th:include="fragments/mensajes :: copy"></div>
+
+			<form th:action="@{/user/perfil}" method="post" th:object="${Usuario}" >
+				<input type="hidden" name="id" th:value="${usuario.id}"/>
+				<div th:include="fragments/form_usuario :: copy"></div>
+				<br />
+				<p>Al pulsar el botón aceptas las condiciones criminales que te
+					imponemos.</p>
+				<br />
+				<div class="col-md-12">
+					<div class="col-md-6 text-left">
+						<button type="submit" class="btn btn-primary btn-lg">Modificar</button>
+					</div>
+					<div class="col-md-6 text-right">
+						<a th:href="@{/user/darseDeBaja}" class="btn btn-danger btn-lg">Baja</a>
+					</div>
+				</div>
+				<br />
+				
+			</form>
+			
+		</div>
+		<div th:include="fragments/footer :: copy"></div>
+	</div> <!-- /container -->
+
+	<div th:include="fragments/javascript :: copy"></div>
+
+</body>
+</html>

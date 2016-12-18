@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<header th:include="fragments/header :: copy"></header>
+	<title>Listado de Usuarios</title>
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="header clearfix">
+		<div th:include="fragments/nav_admin :: copy"></div> 
+		<h3 class="text-muted">Wallapop</h3>
+		</div>
+
+		<div class="jumbotron">
+			<h1>Listado de Usuarios</h1>
+			<div th:include="fragments/mensajes :: copy"></div>
+
+			<div class="container page-header">
+				
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Nombre</th>
+							<th>Apellidos</th>
+							<th>Email</th>
+							<th>Ciudad</th>
+							<th>Acciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="u : ${usuarios}">
+							<td th:text="${u.id}"></td>
+							<td th:text="${u.nombre}"></td>
+							<td th:text="${u.apellidos}"></td>
+							<td th:text="${u.email}"></td>
+							<td th:text="${u.ciudad}"></td>
+							<td>
+								<div class="row">
+									<div class="col-md-2">
+										<a th:href="@{'usuario/' + ${u.id}}">
+											<span class="glyphicon glyphicon-edit" aria-hidden="true" title="Editar"></span>
+										</a>
+									</div>
+									
+									<div class="col-md-4 text-center">
+										<form th:action="@{'usuario'}" method="post">
+											<input type="hidden" name="id" th:value="${u.id}" />
+											<button type="submit"><span class="glyphicon glyphicon-trash" aria-hidden="true" title="Eliminar"></span></button>
+										</form>
+									</div>
+									
+									<div class="col-md-4">
+										<form th:action="@{'mensaje'}" method="post">
+											<input type="hidden" name="idUsuarioTo" th:value="${u.id}" />
+											<button type="submit"><span class="glyphicon glyphicon-comment" aria-hidden="true" title="Enviar mensaje"></span></button>
+										</form>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				
+			</div>
+			
+		</div>
+		<div th:include="fragments/footer :: copy"></div>
+	</div> <!-- /container -->
+
+	<div th:include="fragments/javascript :: copy"></div>
+	
+
+</body>
+</html>

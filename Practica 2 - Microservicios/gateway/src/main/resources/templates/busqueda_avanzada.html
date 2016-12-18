@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<header th:include="fragments/header :: copy"></header>
+	<title>Búsqueda Avanzada</title>
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="header clearfix">
+		<div th:include="fragments/nav_usuario :: copy"></div> 
+		<h3 class="text-muted">Wallapop</h3>
+		</div>
+
+		<div class="jumbotron">
+			<h1>Búsqueda Avanzada</h1>
+			<div th:include="fragments/mensajes :: copy"></div>
+
+			<form th:action="@{busquedaAvanzada}" method="post">
+				<!-- Titulo -->
+				<div class="form-group">
+					<label>Título: </label>
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">
+							<span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> 
+						</span>
+						<input type="text" class="form-control" placeholder="Título del Producto"
+							   name="titulo" aria-describedby="basic-addon1"  />
+					</div>
+				</div>
+				<br />
+				<!-- Precio -->
+				<div class="form-group">
+					<label>Precio: </label>
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">
+							<span class="glyphicon glyphicon-euro" aria-hidden="true"></span>
+						</span>
+						<input type="number" min="0" max="999999" step="0.01" class="form-control"
+							   placeholder="Precio" name="precio" aria-describedby="basic-addon1" 
+							   value="0.0"/>
+					</div>
+				</div>
+				<br />
+				<!-- Categor�a -->
+				<div class="form-group">
+					<label>Categoría: </label>
+					<div class="input-group dropdown">
+						<span class="input-group-addon" id="basic-addon1"><span
+							class="glyphicon glyphicon-tasks" aria-hidden="true"></span></span>
+						<select name="categoria" class="form-control">
+							<option value="Cualquiera">Cualquiera</option>
+							<option value="Vehiculos">Vehículos</option>
+							<option value="Moda">Moda</option>
+							<option value="Electrodomesticos">Electrodomésticos</option>
+							<option value="Libros">Libros</option>
+						</select>
+					</div>
+				</div>
+				<br />
+				<div class="row text-right">
+					<button type="submit" class="btn btn-primary btn-lg">Buscar</button>
+				</div>
+				<br />
+			</form>
+			
+			<div th:include="fragments/listar_productos_avanzado :: copy"></div>
+			
+		</div>
+		<div th:include="fragments/footer :: copy"></div>
+	</div> <!-- /container -->
+
+	<div th:include="fragments/javascript :: copy"></div>
+
+</body>
+</html>

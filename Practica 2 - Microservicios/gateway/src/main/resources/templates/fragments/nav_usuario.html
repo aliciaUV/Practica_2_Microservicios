@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+  
+    <div th:fragment="copy">
+      <nav>
+		<ul class="nav nav-pills pull-right">
+			<li role="presentation" class="active"><a th:href="@{/user}">Menú</a></li>
+			<li role="presentation" class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Productos<b class="caret"></b></a>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+					<li><a tabindex="-1" th:href="@{/user/productos}">Mis Productos</a></li>
+					<li><a tabindex="-1" th:href="@{/user/producto}">Alta</a></li>
+					<li><a tabindex="-1" th:href="@{/user/busqueda-avanzada}">Búsqueda Avanzada</a></li>
+				</ul>
+			</li>
+			<li role="presentation" class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Chat<b class="caret"></b></a>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+					<li><a tabindex="-1" th:href="@{/user/mensajes}">Mis Mensajes</a></li>
+				</ul>
+			</li>
+			<li role="presentation"><a th:href="@{/user/perfil}">Perfil</a></li>
+			<li role="presentation"><a th:href="@{/logout}">Logout</a></li>
+		</ul>
+	  </nav>
+    </div>
+
+ </body>
+</html>
